@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Ultima Atividade da UC9!</title>
+</head>
+
+<body>
+    <h1><em>Classificação de Livros, usando o sistema decimal de Dewey!</em></h1>
+    <div id="livros"></div>
+    <button onclick="classificar()" class="botao"><em>Classificar Livros</em></button>
+
+    <script>
+        const livros = [];
+        let codigo;
+        let naoclass;
+        let opcao = "1";
+
+        function classificar() {
+
+            opcao = prompt("Deseja consutar os livros pelos códigos de Dewey? \n 1-Sim \n 2-Não.")
+            exibir();
+
+            while (opcao == "1") {
+                codigo = Number(prompt("Digite o código do livro que deseja consultar"));
+
+                switch (codigo) {
+                    case 10:
+                        codigo = "Bibliografias" + " - " + codigo;
+                        break;
+                    case 100:
+                        codigo = "Filosofia" + " - " + codigo;
+                        break;
+                    case 220:
+                        codigo = "Bíblia" + " - " + codigo;
+                        break;
+                    case 423:
+                        codigo = "Dicionarios" + " - " + codigo;
+                        break;
+                    case 500:
+                        codigo = "Ciências Naturais" + " - " + codigo;
+                        break;
+                    case 610:
+                        codigo = "Medicina" + " - " + codigo;
+                        break;
+                    case 700:
+                        codigo = "Artes" + " - " + codigo;
+                        break;
+                    case 770:
+                        codigo = "Fotografia" + "- " + codigo;
+                        break;
+                    case 800:
+                        codigo = "Literatura" + " - " + codigo;
+                        break;
+                    case 869:
+                        codigo = "Literatura Brasileira" + " - " + codigo;
+                        break;
+                    case 900:
+                        codigo = "Geografia e História" + " - " + codigo;
+                        break;
+                    case 999:
+                        codigo = "Histórias dos mundos Extraterrestres" + " - " + codigo;
+                        break;
+
+                    default: 1234567890
+                        break;
+                }
+
+                livros.push(codigo)
+
+                opcao = prompt("Deseja consutar os livros pelos códigos de Dewey? \n 1-Sim \n 2-Não.");
+            }
+            exibir();
+        }
+
+
+        function exibir() {
+            let livrosHtml = "<ol>"
+            for (let i = 0; i < livros.length; i++) {
+                livrosHtml += "<li>" + livros[i] + "</li>";
+
+            }
+            livrosHtml += "</ol>"
+            document.getElementById('livros').innerHTML = livrosHtml;
+        }
+    </script>
+</body>
+
+</html>
